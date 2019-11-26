@@ -4,6 +4,11 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+// import cheerio from 'cheerio'
+const cheerio = require('cheerio')
+
+let data = cheerio.load('https://www.pexels.com/search-photos/?s=sports')
+console.log("cherio",data)
 ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

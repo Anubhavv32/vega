@@ -24,6 +24,9 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
+    <link type="text/css" rel="stylesheet" media="screen" href="//fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic&amp;subset=latin,cyrillic-ext,latin-ext,cyrillic">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></link>
     <title>React App</title>
   </head>
   <body>
@@ -39,5 +42,84 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-  </body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" ></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/3.5.0/fabric.min.js" ></script>
+<script src="https://cdn.rawgit.com/eligrey/FileSaver.js/5ed507ef8aa53d8ecfea96d96bc7214cd2476fd2/FileSaver.min.js"></script>
+<script src ="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js"></script>
+<script src="canvas-toBlob.js"></script>
+<script src="Blob.js"></script>
+
+<script>
+var imge = document.getElementById("img").src
+  var canvas = new fabric.Canvas('c');
+  fabric.Image.fromURL(imge, function(img1){
+  
+    img1.setWidth(200);
+    img1.setHeight(200);
+    canvas.add(img1);
+  });
+  // canvas.setBackgroundImage(imge, canvas.renderAll.bind(canvas));
+</script> 
+<script>
+// var imageSaver = document.getElementById('d');
+// imageSaver.addEventListener('click', saveImage, false);
+
+// function saveImage(e) {
+//    this.href = canvas.toDataURL({
+//       format: 'png',
+//       quality: 0.8
+//    });
+ 
+//    this.download = 'custom.png'
+// }
+</script>
+<!-- <script>
+	$(function () {		
+		var canvas1 = new fabric.Canvas('canvas1');
+				//Default
+		var canvas = canvas1;
+		canvas.backgroundColor = '#34AD39';
+    canvas.renderAll();
+		//Change background using Image
+        document.getElementById('bg_image').addEventListener('change', function (e) {
+            canvas.setBackgroundColor('', canvas.renderAll.bind(canvas));
+            canvas.setBackgroundImage(0, canvas.renderAll.bind(canvas));
+            var file = document.getElementById("img").src
+            var reader = new FileReader();
+            reader.onload = function (f) {
+                var data = f.target.result;
+                fabric.Image.fromURL(data, function (img) {
+                    img.set({
+                        width: canvas.getWidth(), 
+                        height: canvas.getHeight(), 
+                        originX: 'left', 
+                        originY: 'top'
+                    });
+                    canvas.setBackgroundImage(img, canvas.renderAll.bind(canvas));
+                    /*canvas.setBackgroundImage(img, canvas.renderAll.bind(canvas), {
+                        width: canvas.getWidth(),
+                        height: canvas.getHeight(),
+                        originX: 'left',
+                        originY: 'top',
+                        crossOrigin: 'anonymous'
+                    });*/
+                });
+            };
+            reader.readAsDataURL(file);
+        });
+	});
+</script> -->
+<script>
+
+
+$("#b").click(function(){
+  alert("jjjjjj")
+	$("#c").get(0).toBlob(function(blob){
+		saveAs(blob, "myIMG.png");
+	});
+});
+</script>
+</body>
 </html>
